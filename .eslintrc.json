@@ -1,0 +1,49 @@
+{
+  "plugins": ["node", "unicorn", "sonarjs", "only-error", "@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:@typescript-eslint/strict",
+    "plugin:node/recommended",
+    "plugin:unicorn/recommended",
+    "plugin:sonarjs/recommended",
+    "plugin:tailwindcss/recommended",
+    "next/core-web-vitals",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "semi": ["error", "always"],
+    "eqeqeq": "error",
+    "no-else-return": "error",
+    "no-var": "error",
+    "no-floating-decimal": "error",
+    "block-scoped-var": "error",
+    "camelcase": "error",
+    "default-case-last": "error",
+    "prefer-const": "error",
+    "no-use-before-define": "error",
+    "no-unneeded-ternary": "error",
+
+    "node/no-unsupported-features/es-syntax": "off",
+    "unicorn/prevent-abbreviations": "off",
+    "node/no-missing-import": "off",
+    "sonarjs/no-duplicate-string": "off",
+    "unicorn/no-null": "off",
+    "tailwindcss/no-custom-classname": "off"
+  },
+  "ignorePatterns": [
+    "node_modules/",
+    ".next/",
+    "postcss.config.js",
+    "tailwind.config.js",
+    "next.config.js",
+    "prettier.config.js"
+  ]
+}
