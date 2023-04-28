@@ -28,14 +28,15 @@ const serif = Roboto_Serif({
 
 export const metadata = {
   title: {
-    default: "Next.js Blob",
-    template: "%s | Next.js Blob",
+    default: "TSDB",
+    template: "%s | TSDB",
   },
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
-  description: "Doin' some next-gen things...",
+  description:
+    "Simple app to keep track of your watched episodes of The Simpsons.",
 };
 
 export default function RootLayout({

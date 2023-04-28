@@ -2,7 +2,7 @@
 
 import Box from "@/components/static/box";
 import Site from "@/components/static/site";
-import { H1 } from "@/components/static/text";
+import H1 from "@/components/static/text/h1";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
 
