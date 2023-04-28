@@ -11,22 +11,12 @@ datasource db {
 }
 
 model Episode {
-  id         Int                @id
-  seasonNo   Int
-  episodeNo  Int
-  directedBy String
-  writtenBy  String
-  data       EpisodeData[]
-}
-
-model EpisodeData {
-  episodeId Int     @id
-  episode   Episode @relation(fields: [episodeId], references: [id])
-
-  country  String
+  id       Int      @id
+  season   Int
+  episode  Int
   title    String
   premiere DateTime
   plot     String
 
-  @@unique([episodeId, country])
+  @@unique([season, episode])
 }
