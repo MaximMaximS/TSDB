@@ -4,6 +4,7 @@ import "./globals.css";
 import { Roboto_Mono, Roboto_Serif, Rubik } from "next/font/google";
 import Providers from "./providers";
 import { Toaster } from "@/components/ui/toaster";
+import SiteHeader from "@/components/header/site-header";
 
 const sans = Rubik({
   display: "swap",
@@ -51,6 +52,7 @@ export default function RootLayout({
       suppressHydrationWarning>
       <body className={cn("font-sans", "bg-background", "text-foreground")}>
         <Providers>
+          <SiteHeader />
           <main>{children}</main>
           <Toaster />
         </Providers>

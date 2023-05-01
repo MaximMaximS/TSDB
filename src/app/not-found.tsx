@@ -1,8 +1,8 @@
 "use client";
 
-import Box from "@/components/static/box";
-import Site from "@/components/static/site";
-import H1 from "@/components/static/text/h1";
+import Box from "@/components/box";
+import Site from "@/components/site";
+import H1 from "@/components/text/h1";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
 
