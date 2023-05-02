@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { SidebarOpen } from "lucide-react";
 
-import { siteConfig } from "@/config/site";
+import siteConfig from "@/config/site";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";

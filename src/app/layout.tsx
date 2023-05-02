@@ -5,6 +5,8 @@ import { Roboto_Mono, Roboto_Serif, Rubik } from "next/font/google";
 import Providers from "./providers";
 import { Toaster } from "@/components/ui/toaster";
 import SiteHeader from "@/components/header/site-header";
+import siteConfig from "@/config/site";
+import SiteFooter from "@/components/site-footer";
 
 const sans = Rubik({
   display: "swap",
@@ -38,6 +40,7 @@ export const metadata = {
   ],
   description:
     "Simple app to keep track of your watched episodes of The Simpsons.",
+  authors: siteConfig.author,
 };
 
 export default function RootLayout({
@@ -52,8 +55,13 @@ export default function RootLayout({
       suppressHydrationWarning>
       <body className={cn("font-sans", "bg-background", "text-foreground")}>
         <Providers>
-          <SiteHeader />
-          <main>{children}</main>
+          <div className="relative flex min-h-screen flex-col">
+            <SiteHeader />
+            <main className="flex flex-1 items-stretch justify-center">
+              {children}
+            </main>
+            <SiteFooter />
+          </div>
           <Toaster />
         </Providers>
       </body>

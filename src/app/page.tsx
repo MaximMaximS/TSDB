@@ -1,13 +1,15 @@
-import H1 from "@/components/text/h1";
-import Site from "@/components/site";
-import Box from "@/components/box";
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
 
 export default function Page() {
+  const { toast } = useToast();
   return (
-    <Site>
-      <Box>
-        <H1>TSDB</H1>
-      </Box>
-    </Site>
+    <div className="flex flex-col items-center justify-center">
+      <Button variant="outline" onClick={() => toast({ title: "It Works!" })}>
+        Hello, World!
+      </Button>
+    </div>
   );
 }
