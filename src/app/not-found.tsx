@@ -1,26 +1,25 @@
 "use client";
 
-import Box from "@/components/box";
-import H1 from "@/components/text/h1";
-import { Button } from "@/components/ui/button";
+import { h1ClassName, inlineCodeClassName } from "@/components/typography";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 
 export default function NotFound() {
   const path = usePathname();
 
   return (
-    <Box>
-      <div className="mb-4">
-        <H1>Not Found</H1>
+    <div className="flex flex-col items-center justify-center">
+      <div className="m-2">
+        <h1 className={h1ClassName}>404 - Page Not Found</h1>
       </div>
-      <p className="text mb-4 text-muted-foreground">
-        The page{" "}
-        <code className="rounded-sm bg-accent p-1 font-mono">{path}</code> could
-        not be found.
+      <p className="text m-2 text-muted-foreground">
+        The page <code className={inlineCodeClassName}>{path}</code> could not
+        be found.
       </p>
-      <a href="/">
-        <Button variant="outline">Go Home</Button>
+      <a href="/" className={cn(buttonVariants({ variant: "outline" }), "m-2")}>
+        Go Home
       </a>
-    </Box>
+    </div>
   );
 }

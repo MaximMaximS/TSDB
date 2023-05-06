@@ -19,7 +19,7 @@ const siteConfig = {
       href: "/search",
     },
   ],
-};
+} as const;
 
 export default siteConfig;
 

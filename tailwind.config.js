@@ -13,6 +13,9 @@ module.exports = {
       },
     },
     extend: {
+      transitionProperty: {
+        nav: "width, transform",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -56,7 +59,6 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-sans)"],
         mono: ["var(--font-mono)"],
-        serif: ["var(--font-serif)"],
       },
       keyframes: {
         "accordion-down": {
@@ -71,6 +73,7 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "single-spin": "spin 0.4s linear",
       },
     },
   },

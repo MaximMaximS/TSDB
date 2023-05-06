@@ -3,12 +3,13 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type { Route } from "next";
 
-export default function HeaderLink({
+export default function HeaderLink<T extends string>({
   href,
   label,
 }: {
-  href: string;
+  href: Route<T> | URL;
   label: string;
 }) {
   const pathname = usePathname();
@@ -18,7 +19,7 @@ export default function HeaderLink({
       href={href}
       className={cn(
         "transition-colors hover:text-foreground/80",
-        pathname.startsWith(href) ? "text-foreground" : "text-foreground/60"
+        pathname === href.toString() ? "text-foreground" : "text-foreground/60"
       )}>
       {label}
     </Link>

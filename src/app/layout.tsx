@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import "./globals.css";
 // eslint-disable-next-line camelcase
-import { Roboto_Mono, Roboto_Serif, Rubik } from "next/font/google";
+import { Roboto_Mono, Rubik } from "next/font/google";
 import Providers from "./providers";
 import { Toaster } from "@/components/ui/toaster";
 import SiteHeader from "@/components/header/site-header";
@@ -18,13 +18,6 @@ const sans = Rubik({
 const mono = Roboto_Mono({
   display: "swap",
   variable: "--font-mono",
-  subsets: ["latin"],
-  weight: "variable",
-});
-
-const serif = Roboto_Serif({
-  display: "swap",
-  variable: "--font-serif",
   subsets: ["latin"],
   weight: "variable",
 });
@@ -51,9 +44,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(sans.variable, mono.variable, serif.variable)}
+      className={cn(sans.variable, mono.variable)}
       suppressHydrationWarning>
-      <body className={cn("font-sans", "bg-background", "text-foreground")}>
+      <body>
         <Providers>
           <div className="relative flex min-h-screen flex-col">
             <SiteHeader />

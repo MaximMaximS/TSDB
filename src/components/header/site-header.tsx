@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import siteConfig from "@/config/site";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
@@ -16,10 +14,7 @@ export default function SiteHeader() {
         <MobileNav />
         <div className="flex flex-1 items-center justify-between space-x-2 sm:space-x-4 md:justify-end">
           <nav className="flex items-center space-x-1">
-            <Link
-              href={siteConfig.links.github}
-              target="_blank"
-              rel="noreferrer">
+            <a href={siteConfig.links.github} target="_blank" rel="noreferrer">
               <div
                 className={cn(
                   buttonVariants({
@@ -31,7 +26,7 @@ export default function SiteHeader() {
                 <GitHub className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </div>
-            </Link>
+            </a>
             <ModeToggle />
           </nav>
         </div>

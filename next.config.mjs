@@ -1,9 +1,11 @@
+// @ts-check
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    appDir: true,
+    typedRoutes: true,
+    serverActions: true,
   },
   reactStrictMode: true,
 };
 
-module.exports = nextConfig;
+export default nextConfig;
