@@ -39,7 +39,12 @@
     "tailwindcss/no-custom-classname": "off",
     "unicorn/prefer-top-level-await": "off",
     "node/no-unpublished-import": "off",
-    "unicorn/no-process-exit": "off"
+    "unicorn/no-process-exit": "off",
+    "unicorn/prefer-type-error": "off",
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      { "checksVoidReturn": false }
+    ]
   },
   "ignorePatterns": [
     "node_modules/",

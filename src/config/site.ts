@@ -18,6 +18,14 @@ const siteConfig = {
       label: "Search",
       href: "/search",
     },
+    {
+      label: "Test Page",
+      href: "/test",
+    },
+    {
+      label: "Episode",
+      href: "/episode/1",
+    },
   ],
 } as const;
 
