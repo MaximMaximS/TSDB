@@ -4,11 +4,13 @@ import Link from "next/link";
 
 import siteConfig from "@/config/site";
 import { Logo } from "@/components/icons";
-import HeaderLink from "./header-link";
 import { useRef } from "react";
+import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 export default function MainNav() {
   const menu = useRef<HTMLUListElement>(null);
+  const pathname = usePathname();
   return (
     <div className="mr-4 hidden md:flex">
       <Link href="/" className="mr-6 flex items-center space-x-2">
@@ -43,9 +45,16 @@ export default function MainNav() {
             if (menu.current === null) return;
             menu.current.style.setProperty("--underline-width", "0px");
           }}>
-          {siteConfig.paths.map((path) => (
-            <li key={path.href} className="link-item">
-              <HeaderLink {...path} />
+          {siteConfig.paths.map(({ href, label }) => (
+            <li key={href} className="link-item">
+              <Link
+                href={href}
+                className={cn(
+                  "transition-colors hover:text-foreground/80",
+                  pathname === href ? "text-foreground" : "text-foreground/60"
+                )}>
+                {label}
+              </Link>
             </li>
           ))}
         </ul>

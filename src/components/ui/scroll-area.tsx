@@ -1,10 +1,10 @@
 "use client";
 
 import {
-  ScrollAreaScrollbar,
-  ScrollAreaThumb,
   Root,
   Viewport,
+  ScrollAreaScrollbar,
+  ScrollAreaThumb,
   Corner,
 } from "@radix-ui/react-scroll-area";
 

@@ -48,9 +48,7 @@ export default function RootLayout({
         <Providers>
           <div className="relative flex min-h-screen flex-col">
             <SiteHeader />
-            <main className="flex flex-1 items-stretch justify-center">
-              {children}
-            </main>
+            <main className="flex grow">{children}</main>
             <SiteFooter />
           </div>
           <Toaster />
