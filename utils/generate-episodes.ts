@@ -114,7 +114,7 @@ async function generateEpisode(link: string, alias: string) {
     if (text.length === 0) {
       continue;
     }
-    plot += text.replace(/ /g, " ").replace(/\n+/g, "\n") + "\n";
+    plot += text.replaceAll(/\n+/g, "\n") + "\n";
   }
 
   plot = plot.trim();

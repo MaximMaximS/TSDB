@@ -19,5 +19,14 @@ model Episode {
   premiere DateTime
   plot     String
 
+  viewers User[]
+
   @@unique([season, episode])
+}
+
+model User {
+  id       String    @id @default(cuid())
+  username String    @unique
+  password String
+  watched  Episode[]
 }
