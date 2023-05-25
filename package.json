@@ -15,7 +15,8 @@
     "push": "prisma db push",
     "reset": "prisma migrate reset",
     "migrate": "prisma migrate dev",
-    "episodes": "ts-node ./utils/generate-episodes.ts"
+    "episodes": "ts-node ./utils/generate-episodes.ts",
+    "bundle": "ts-node ./utils/bundle.ts"
   },
   "engines": {
     "node": ">=16.8.0"
@@ -33,7 +34,7 @@
     "@tanstack/react-table": "^8.9.1",
     "class-variance-authority": "0.6.0",
     "clsx": "1.2.1",
-    "lucide-react": "0.220.0",
+    "lucide-react": "0.221.0",
     "nanoid": "^4.0.2",
     "next": "13.4.3",
     "next-themes": "0.2.1",
@@ -48,8 +49,9 @@
   },
   "devDependencies": {
     "@tsconfig/strictest": "2.0.1",
+    "@types/fs-extra": "^11.0.1",
     "@types/node": "20.2.3",
-    "@types/react": "18.2.6",
+    "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
     "@typescript-eslint/eslint-plugin": "5.59.7",
     "@typescript-eslint/parser": "5.59.7",
@@ -64,6 +66,7 @@
     "eslint-plugin-sonarjs": "0.19.0",
     "eslint-plugin-tailwindcss": "3.12.0",
     "eslint-plugin-unicorn": "47.0.0",
+    "fs-extra": "^11.1.1",
     "husky": "8.0.3",
     "lint-staged": "13.2.2",
     "postcss": "8.4.23",

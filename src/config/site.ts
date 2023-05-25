@@ -3,7 +3,7 @@ const siteConfig = {
   description:
     "Simple app to keep track of your watched episodes of The Simpsons.",
   links: {
-    github: "https://github.com/MaximMaximS/tsdb",
+    github: "https://github.com/MaximMaximS/TSDB",
   },
   author: {
     name: "MaximMaximS",
