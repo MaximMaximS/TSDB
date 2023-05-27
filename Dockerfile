@@ -7,7 +7,7 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
 COPY prisma ./prisma
 
-RUN npm install -g pnpm@latest && pnpm install --frozen-lockfile && pnpm run generate
+RUN corepack enable && pnpm install --frozen-lockfile && pnpm run generate
 
 FROM base AS builder
 WORKDIR /app
