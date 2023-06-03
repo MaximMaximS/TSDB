@@ -36,3 +36,5 @@ next-env.d.ts
 
 utils/data/
 dist/
+
+docs/

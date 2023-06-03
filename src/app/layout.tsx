@@ -12,12 +12,14 @@ const sans = Rubik({
   display: "swap",
   variable: "--font-sans",
   subsets: ["latin"],
+  weight: "variable",
 });
 
 const mono = Roboto_Mono({
   display: "swap",
   variable: "--font-mono",
   subsets: ["latin"],
+  weight: "variable",
 });
 
 export const metadata = {

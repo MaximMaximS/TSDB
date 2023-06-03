@@ -23,7 +23,6 @@ export default function EpisodeTable({ query }: EpisodeTableProps) {
       <Table>
         <TableCaption>
           <Wrapper fallback={<CaptionFallback />}>
-            {/* @ts-expect-error Async Server Component */}
             <Caption query={query} />
           </Wrapper>
         </TableCaption>
@@ -36,7 +35,6 @@ export default function EpisodeTable({ query }: EpisodeTableProps) {
         </TableHeader>
         <TableBody>
           <Wrapper>
-            {/* @ts-expect-error Async Server Component */}
             <Episodes query={query} />
           </Wrapper>
         </TableBody>

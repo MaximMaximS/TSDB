@@ -2,8 +2,14 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider      = "prisma-client-js"
-  binaryTargets = ["native"]
+  provider        = "prisma-client-js"
+  binaryTargets   = ["native"]
+  previewFeatures = ["clientExtensions"]
+}
+
+generator docs {
+  provider = "node node_modules/prisma-docs-generator"
+  output   = "../docs"
 }
 
 datasource db {

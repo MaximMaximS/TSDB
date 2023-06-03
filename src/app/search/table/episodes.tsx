@@ -1,9 +1,9 @@
 import { TableRow, TableCell } from "@/components/ui/table";
-import { search } from "./get-episodes";
+import getEpisodes from "./get-episodes";
 import EpisodeLink from "./episode-link";
 
 export default async function Episodes({ query }: { query: string }) {
-  const episodes = await search(query);
+  const episodes = await getEpisodes(query);
 
   return (
     <>
