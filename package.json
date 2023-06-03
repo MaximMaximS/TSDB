@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "node .next/standalone/server.js",
     "prod": "dotenv -e .env.development.local -- pnpm start",
+    "bundle": "pnpm run generate && pnpm run build && ts-node ./utils/bundle.ts",
     "lint": "next lint",
     "format": "prettier --write . --ignore-unknown",
     "prepare": "husky install",
@@ -18,8 +19,7 @@
     "migrate": "dotenv -e .env.development.local -- prisma migrate dev",
     "episodes": "dotenv -e .env.development.local -- ts-node ./utils/generate-episodes.ts",
     "seed": "dotenv -e .env.development.local -- pnpm run reset && pnpm run episodes --write && ts-node ./utils/seed.ts",
-    "docs": "prisma-docs-generator serve",
-    "bundle": "ts-node ./utils/bundle.ts"
+    "docs": "prisma-docs-generator serve"
   },
   "engines": {
     "node": ">=16.8.0"

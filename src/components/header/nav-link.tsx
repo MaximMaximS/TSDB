@@ -2,14 +2,16 @@
 
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import type { Route } from "next";
 import { usePathname } from "next/navigation";
+import type { SiteConfig } from "@/config/site";
 
-export default function NavLink<T extends string>({
+type Href = SiteConfig["paths"][number]["href"];
+
+export default function NavLink({
   href,
   label,
 }: {
-  href: Route<T> | URL;
+  href: Href;
   label: string;
 }) {
   const pathname = usePathname();
