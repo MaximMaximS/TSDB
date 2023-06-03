@@ -1,6 +1,6 @@
 import "server-only";
 import { PrismaClient } from "@prisma/client";
-import { verify } from "argon2";
+import { verify, hash } from "argon2";
 
 function newPrisma() {
   const prisma = new PrismaClient(
@@ -21,6 +21,24 @@ function newPrisma() {
           const hash = user.password;
           const valid = await verify(hash, password);
           return valid ? user.id : null;
+        },
+        async register(username: string, password: string) {
+          const exists = await prisma.user.findUnique({
+            where: { username },
+            select: { id: true },
+          });
+
+          if (exists !== null) {
+            return null;
+          }
+
+          const hsh = await hash(password);
+
+          const user = await prisma.user.create({
+            data: { username, password: hsh },
+            select: { id: true },
+          });
+          return user.id;
         },
       },
     },

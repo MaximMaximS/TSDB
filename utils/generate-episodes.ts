@@ -1,10 +1,16 @@
 // File system
-import fetch from "cross-fetch";
+import axios from "axios";
 import fs from "node:fs";
 import { URL } from "node:url";
 import { load } from "cheerio";
 import { z } from "zod";
 import { PrismaClient } from "@prisma/client";
+import { SocksProxyAgent } from "socks-proxy-agent";
+
+const agent = new SocksProxyAgent("socks5://127.0.0.1:9050");
+
+const USE_TOR = process.env["USE_TOR"] === "true";
+const SLOW = process.env["SLOW"] === "true";
 
 // Create data folder ./utils/data/pages
 if (!fs.existsSync("./utils/data")) {
@@ -28,13 +34,29 @@ async function fetchSite(url: URL, alias: string) {
       console.log(`File ${alias} not found, fetching...`);
     }
   }
-  const response = await fetch(url);
-  if (response.status !== 200) {
-    throw new Error(`Failed to fetch ${alias} (${url.toString()})`);
+  let tries = 0;
+  while (tries < 3) {
+    try {
+      const response = await axios({
+        httpsAgent: USE_TOR ? agent : undefined,
+        url: url.href,
+        method: "GET",
+      });
+
+      if (response.status !== 200) {
+        throw new Error(`Failed to fetch ${alias} (${url.toString()})`);
+      }
+      const result = z.string().parse(response.data);
+      fs.writeFileSync(`./utils/data/pages/${alias}.html`, result);
+      return result;
+    } catch {
+      tries++;
+      await new Promise((resolve) => setTimeout(resolve, 1000 * tries));
+      console.log(`${alias} failed, retrying...`);
+      continue;
+    }
   }
-  const result = await response.text();
-  fs.writeFileSync(`./utils/data/pages/${alias}.html`, result);
-  return result;
+  throw new Error(`Failed to fetch ${alias} (${url.toString()})`);
 }
 
 const months = new Map([
@@ -152,9 +174,14 @@ async function main() {
     return [href, alias] as const;
   });
 
-  const e = await Promise.all(
-    links.map((element) => generateEpisode(...element))
-  );
+  let e: Awaited<ReturnType<typeof generateEpisode>>[] = [];
+  if (SLOW) {
+    for (const element of links) {
+      e.push(await generateEpisode(...element));
+    }
+  } else {
+    e = await Promise.all(links.map((element) => generateEpisode(...element)));
+  }
 
   const episodes = e;
 
