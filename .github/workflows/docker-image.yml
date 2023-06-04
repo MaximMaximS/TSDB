@@ -5,7 +5,7 @@ on:
   pull_request:
 
 jobs:
-  docker:
+  docker-build:
     runs-on: ubuntu-latest
 
     steps:
