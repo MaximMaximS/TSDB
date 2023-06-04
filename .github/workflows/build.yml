@@ -21,5 +21,8 @@ jobs:
         with:
           version: latest
 
+      - name: Install dependencies
+        run: pnpm run deps
+
       - name: Build
         run: pnpm run builder
