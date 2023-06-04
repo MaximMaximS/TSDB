@@ -23,10 +23,12 @@
     "deploy:episodes": "dotenv -e .env.production.local -- ts-node ./utils/generate-episodes.ts --write",
     "seed": "dotenv -e .env.development.local -- npm run reset && npm run episodes --write && ts-node ./utils/seed.ts",
     "docs": "prisma-docs-generator serve",
-    "register": "dotenv -e .env.production.local -- ts-node ./utils/register.ts"
+    "register": "dotenv -e .env.production.local -- ts-node ./utils/register.ts",
+    "deps": "pnpm install --frozen-lockfile && pnpm run generate",
+    "builder": "pnpm run build && pnpm run bundle"
   },
   "engines": {
-    "node": ">=16.8.0"
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "@prisma/client": "4.15.0",

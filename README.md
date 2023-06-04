@@ -2,34 +2,63 @@
 
 Simple app to keep track of your watched episodes of The Simpsons.
 
-## Usage
+## Deployment
 
 TSDB Can be run using Docker or standalone using Node.js
 
-### Docker
+### 0. Prerequisites
+
+- Node.js
+- pnpm
+- PostgreSQL
+
+Environment variables can be set using a `.env.production.local` file in the root directory, or by setting them in the environment (obviously)
+
+```env
+# The port to listen on
+PORT=3000
+
+# The URL to the PostgreSQL database
+DATABASE_URL=postgres://user:password@host:port/database
+```
+
+### 1. Clone the repository
 
 ```sh
-# Clone
 git clone https://github.com/MaximMaximS/TSDB.git
+cd TSDB
+```
 
+### 2. Install dependencies
+
+```sh
+pnpm run deps
+```
+
+### 3. Prepare the database
+
+```sh
+pnpm run deploy
+```
+
+### 4a. Docker
+
+```sh
 # Build
 docker build -t maximmaxims/tsdb .
 
 # Start
-docker run -p 3000:3000 maximmaxims/tsdb
+docker run --env-file .env.production.local -p 3000:3000 maximmaxims/tsdb
 ```
 
-### Standalone
+### 4b. Standalone
+
+This requires Node.js and pnpm to be installed.
+Note that the env file must be moved to the `dist` directory.
 
 ```sh
-# Clone
-git clone https://github.com/MaximMaximS/TSDB.git
-
-# Install dependencies
-pnpm install --frozen-lockfile
-
-# Generate bundle
-pnpm run bundle
+# Build
+pnpm run builder
 
 # Start
 cd dist
