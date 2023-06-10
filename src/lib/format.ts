@@ -16,3 +16,7 @@ export function found(cnt: number, name: string) {
 export function pad(n: number) {
   return n.toString().padStart(2, "0");
 }
+
+export function SEFormat(se: number, ep: number) {
+  return `S${pad(se)}E${pad(ep)}`;
+}
