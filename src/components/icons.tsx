@@ -1,5 +1,5 @@
-import Image from "next/image";
 import LogoIcon from "&/assets/images/logo.png";
+import Image from "next/image";
 
 export function Logo({ className }: { className?: string }) {
   return <Image src={LogoIcon} alt="Logo" className={className} />;

@@ -1,3 +1,4 @@
+import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Table,
   TableBody,
@@ -6,10 +7,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import Wrapper from "./wrapper";
+
 import Caption, { CaptionFallback } from "./caption";
 import Episodes from "./episodes";
+import Wrapper from "./wrapper";
 
 export const container = "my-2 h-96 rounded-md border p-4 w-[32rem]";
 

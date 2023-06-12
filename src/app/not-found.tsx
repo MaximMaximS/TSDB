@@ -2,6 +2,7 @@ import Site from "@/components/site";
 import { h1ClassName, inlineCodeClassName } from "@/components/typography";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+
 import Path from "./path";
 
 export default function NotFound() {

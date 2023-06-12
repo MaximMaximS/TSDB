@@ -1,9 +1,9 @@
 "use client";
 
+import type { SiteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { SiteConfig } from "@/config/site";
 
 type Href = SiteConfig["paths"][number]["href"];
 
@@ -17,13 +17,15 @@ export default function NavLink({
   const pathname = usePathname();
 
   return (
-    <Link
-      href={href}
-      className={cn(
-        "transition-colors hover:text-foreground/80",
-        pathname === href ? "text-foreground" : "text-foreground/60"
-      )}>
-      {label}
-    </Link>
+    <li>
+      <Link
+        href={href}
+        className={cn(
+          "transition-colors hover:text-foreground/80",
+          pathname === href ? "text-foreground" : "text-foreground/60"
+        )}>
+        {label}
+      </Link>
+    </li>
   );
 }

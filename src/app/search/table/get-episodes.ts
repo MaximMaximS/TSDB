@@ -1,6 +1,6 @@
-import "server-only";
-import { cache } from "react";
 import prisma from "@/lib/prisma";
+import { cache } from "react";
+import "server-only";
 
 const getEpisodes = cache(async (query: string) => {
   if (query.length < 3) return [];

@@ -1,5 +1,5 @@
-import siteConfig from "@/config/site";
 import { Logo } from "@/components/icons";
+import siteConfig from "@/config/site";
 
 export default function SiteFooter() {
   return (

@@ -1,13 +1,12 @@
 "use client";
 
-import Link from "next/link";
-import { SidebarOpen } from "lucide-react";
-
-import siteConfig from "@/config/site";
+import { Logo } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Logo } from "@/components/icons";
+import siteConfig from "@/config/site";
+import { SidebarOpen } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function MobileNav() {

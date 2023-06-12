@@ -1,6 +1,6 @@
-import "server-only";
-import { cache } from "react";
 import prisma from "@/lib/prisma";
+import { cache } from "react";
+import "server-only";
 
 const getEpisode = cache((id: number) =>
   prisma.episode.findUnique({

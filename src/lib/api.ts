@@ -1,8 +1,9 @@
-import { Episode } from "@prisma/client";
-import prisma from "./prisma";
+import type { Episode } from "@prisma/client";
 import { headers } from "next/headers";
 import { message } from "statuses";
 import { z } from "zod";
+
+import prisma from "./prisma";
 
 /**
  * Create a basic response with a status code

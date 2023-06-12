@@ -1,6 +1,7 @@
-import { TableRow, TableCell } from "@/components/ui/table";
-import getEpisodes from "./get-episodes";
+import { TableCell, TableRow } from "@/components/ui/table";
+
 import EpisodeLink from "./episode-link";
+import getEpisodes from "./get-episodes";
 
 export default async function Episodes({ query }: { query: string }) {
   const episodes = await getEpisodes(query);

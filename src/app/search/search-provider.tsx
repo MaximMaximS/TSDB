@@ -1,7 +1,7 @@
 "use client";
 
 import {
-  TransitionStartFunction,
+  type TransitionStartFunction,
   createContext,
   useContext,
   useTransition,

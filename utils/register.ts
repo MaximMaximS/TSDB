@@ -1,6 +1,6 @@
-import { createInterface } from "node:readline/promises";
 import { PrismaClient } from "@prisma/client";
 import { hash } from "argon2";
+import { createInterface } from "node:readline/promises";
 
 const prisma = new PrismaClient();
 

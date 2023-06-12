@@ -1,7 +1,9 @@
 "use client";
+
 import { Input } from "@/components/ui/input";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ChangeEvent } from "react";
+import type { ChangeEvent } from "react";
+
 import { useStartTransition } from "./search-provider";
 
 export default function SearchBox() {

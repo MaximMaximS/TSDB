@@ -1,8 +1,7 @@
 "use client";
 
-import { Root, Indicator } from "@radix-ui/react-progress";
-
 import { cn } from "@/lib/utils";
+import { Indicator, Root } from "@radix-ui/react-progress";
 import { forwardRef } from "react";
 
 const Progress = forwardRef<

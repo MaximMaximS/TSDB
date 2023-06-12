@@ -1,6 +1,7 @@
 import { found } from "@/lib/format";
-import getEpisodes from "./get-episodes";
 import { Loader } from "lucide-react";
+
+import getEpisodes from "./get-episodes";
 
 export default async function Caption({ query }: { query: string }) {
   const episodes = await getEpisodes(query);

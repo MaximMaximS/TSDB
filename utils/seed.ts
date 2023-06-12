@@ -1,9 +1,9 @@
-import { config } from "dotenv";
+import { PrismaClient } from "@prisma/client";
 import argon2 from "argon2";
+import { config } from "dotenv";
 
 config({ path: ".env.development.local" });
 
-import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {

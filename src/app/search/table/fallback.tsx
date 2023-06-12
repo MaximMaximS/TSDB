@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+
 import { useIsPending } from "../search-provider";
 
 interface FallbackProps {

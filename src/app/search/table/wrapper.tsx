@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+
 import Fallback from "./fallback";
 
 interface WrapperProps {

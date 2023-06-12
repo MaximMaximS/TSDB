@@ -1,7 +1,8 @@
 import Site from "@/components/site";
+
+import SearchBox from "./search-box";
 import SearchProvider from "./search-provider";
 import EpisodeTable from "./table/episode-table";
-import SearchBox from "./search-box";
 
 export const dynamic = "force-dynamic";
 

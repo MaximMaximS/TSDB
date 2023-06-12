@@ -1,6 +1,6 @@
-import "server-only";
 import { PrismaClient } from "@prisma/client";
-import { verify, hash } from "argon2";
+import { hash, verify } from "argon2";
+import "server-only";
 
 function newPrisma() {
   const prisma = new PrismaClient(

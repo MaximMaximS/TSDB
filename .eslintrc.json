@@ -30,6 +30,7 @@
     "prefer-const": "error",
     "no-use-before-define": "error",
     "no-unneeded-ternary": "error",
+    "@typescript-eslint/consistent-type-imports": "error",
 
     "node/no-unsupported-features/es-syntax": "off",
     "unicorn/prevent-abbreviations": "off",

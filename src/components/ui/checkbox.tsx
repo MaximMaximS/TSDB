@@ -1,9 +1,8 @@
 "use client";
 
-import { Root, Indicator } from "@radix-ui/react-checkbox";
-import { Check } from "lucide-react";
-
 import { cn } from "@/lib/utils";
+import { Indicator, Root } from "@radix-ui/react-checkbox";
+import { Check } from "lucide-react";
 import { forwardRef } from "react";
 
 const Checkbox = forwardRef<

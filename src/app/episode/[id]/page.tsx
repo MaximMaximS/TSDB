@@ -1,5 +1,6 @@
 import Site from "@/components/site";
 import { h1ClassName } from "@/components/typography";
+
 import getEpisode from "./get-episode";
 
 export default async function Page({ params }: { params: { id: string } }) {

@@ -1,11 +1,11 @@
 // File system
+import { PrismaClient } from "@prisma/client";
 import axios from "axios";
+import { load } from "cheerio";
 import fs from "node:fs";
 import { URL } from "node:url";
-import { load } from "cheerio";
-import { z } from "zod";
-import { PrismaClient } from "@prisma/client";
 import { SocksProxyAgent } from "socks-proxy-agent";
+import { z } from "zod";
 
 const agent = new SocksProxyAgent("socks5://127.0.0.1:9050");
 

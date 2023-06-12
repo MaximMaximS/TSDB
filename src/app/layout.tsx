@@ -1,12 +1,13 @@
+import SiteHeader from "@/components/header/site-header";
+import SiteFooter from "@/components/site-footer";
+import { Toaster } from "@/components/ui/toaster";
+import siteConfig from "@/config/site";
 import { cn } from "@/lib/utils";
-import "./globals.css";
 // eslint-disable-next-line camelcase
 import { Roboto_Mono, Rubik } from "next/font/google";
+
+import "./globals.css";
 import Providers from "./providers";
-import { Toaster } from "@/components/ui/toaster";
-import SiteHeader from "@/components/header/site-header";
-import siteConfig from "@/config/site";
-import SiteFooter from "@/components/site-footer";
 
 const sans = Rubik({
   display: "swap",

@@ -1,14 +1,13 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import {
+  Corner,
   Root,
-  Viewport,
   ScrollAreaScrollbar,
   ScrollAreaThumb,
-  Corner,
+  Viewport,
 } from "@radix-ui/react-scroll-area";
-
-import { cn } from "@/lib/utils";
 import { forwardRef } from "react";
 
 const ScrollBar = forwardRef<

@@ -1,9 +1,10 @@
-import siteConfig from "@/config/site";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
 import MainNav from "@/components/header/main-nav";
 import ModeToggle from "@/components/header/mode-toggle";
 import { GitHub } from "@/components/icons";
+import { buttonVariants } from "@/components/ui/button";
+import siteConfig from "@/config/site";
+import { cn } from "@/lib/utils";
+
 import MobileNav from "./mobile-nav";
 
 export default function SiteHeader() {
