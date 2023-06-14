@@ -12,15 +12,9 @@ import Caption, { CaptionFallback } from "./caption";
 import Episodes from "./episodes";
 import Wrapper from "./wrapper";
 
-export const container = "my-2 h-96 rounded-md border p-4 w-[32rem]";
-
-interface EpisodeTableProps {
-  query: string;
-}
-
-export default function EpisodeTable({ query }: EpisodeTableProps) {
+export default function EpisodeTable({ query }: { query: string }) {
   return (
-    <ScrollArea className={container}>
+    <ScrollArea className="my-2 h-96 w-[32rem] rounded-md border p-4">
       <Table>
         <TableCaption>
           <Wrapper fallback={<CaptionFallback />}>

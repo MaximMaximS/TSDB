@@ -13,9 +13,6 @@ export default function SearchBox() {
   const startTransition = useStartTransition();
 
   function handleSearch(e: ChangeEvent<HTMLInputElement>) {
-    if (startTransition === null) {
-      throw new Error("SearchBox muste be used inside SearchProvider");
-    }
     const { value } = e.target;
     startTransition(() => {
       router.replace(value.length > 0 ? `/search?q=${value}` : "/search");
@@ -27,6 +24,7 @@ export default function SearchBox() {
       className="my-2 w-96"
       type="search"
       placeholder="Search"
+      spellCheck={false}
       onChange={handleSearch}
       defaultValue={value}
     />

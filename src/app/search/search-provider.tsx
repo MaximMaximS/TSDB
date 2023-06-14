@@ -13,11 +13,19 @@ const StartTransitionContext = createContext<TransitionStartFunction | null>(
 );
 
 export function useIsPending() {
-  return useContext(IsPendingContext);
+  const isPending = useContext(IsPendingContext);
+  if (isPending === null) {
+    throw new Error("useIsPending must be used within a SearchProvider");
+  }
+  return isPending;
 }
 
 export function useStartTransition() {
-  return useContext(StartTransitionContext);
+  const startTransition = useContext(StartTransitionContext);
+  if (startTransition === null) {
+    throw new Error("useStartTransition must be used within a SearchProvider");
+  }
+  return startTransition;
 }
 
 export default function SearchProvider({

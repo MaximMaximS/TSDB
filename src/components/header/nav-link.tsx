@@ -17,15 +17,13 @@ export default function NavLink({
   const pathname = usePathname();
 
   return (
-    <li>
-      <Link
-        href={href}
-        className={cn(
-          "transition-colors hover:text-foreground/80",
-          pathname === href ? "text-foreground" : "text-foreground/60"
-        )}>
-        {label}
-      </Link>
-    </li>
+    <Link
+      href={href}
+      className={cn(
+        "transition-colors hover:text-foreground/80",
+        pathname === href ? "text-foreground" : "text-foreground/60"
+      )}>
+      {label}
+    </Link>
   );
 }

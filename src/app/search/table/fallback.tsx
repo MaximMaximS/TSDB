@@ -11,8 +11,5 @@ interface FallbackProps {
 
 export default function Fallback({ children, fallback }: FallbackProps) {
   const isPending = useIsPending();
-  if (isPending === null) {
-    throw new Error("Fallback must be used within search provider!");
-  }
   return <>{isPending ? fallback : children}</>;
 }

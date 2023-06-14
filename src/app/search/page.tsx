@@ -4,8 +4,6 @@ import SearchBox from "./search-box";
 import SearchProvider from "./search-provider";
 import EpisodeTable from "./table/episode-table";
 
-export const dynamic = "force-dynamic";
-
 export default function Page({
   searchParams,
 }: {

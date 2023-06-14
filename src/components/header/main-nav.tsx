@@ -17,7 +17,9 @@ export default function MainNav() {
       <nav>
         <NavList>
           {siteConfig.paths.map((props) => (
-            <NavLink key={props.href} {...props} />
+            <li key={props.href}>
+              <NavLink {...props} />
+            </li>
           ))}
         </NavList>
       </nav>
