@@ -1,4 +1,4 @@
-import { apiAuth } from "@/lib/api";
+import { apiAuth } from "@/lib/server/api";
 
 export async function GET() {
   const uid = await apiAuth();

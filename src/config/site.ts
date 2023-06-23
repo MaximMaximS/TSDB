@@ -19,6 +19,11 @@ const siteConfig = {
       href: "/search",
     },
   ],
+  security: {
+    minPasswordLength: 8,
+    minUsernameLength: 3,
+    minSearchQueryLength: 3,
+  },
 } as const;
 
 export default siteConfig;

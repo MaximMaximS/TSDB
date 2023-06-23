@@ -9,7 +9,13 @@ module.exports = {
     require.resolve("@trivago/prettier-plugin-sort-imports"),
   ],
   tailwindConfig: "./tailwind.config.js",
-  importOrder: ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
+  importOrder: [
+    "server-only",
+    "^@lib/server/(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^@lib/(.*)$",
+    "^[./]",
+  ],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
 };

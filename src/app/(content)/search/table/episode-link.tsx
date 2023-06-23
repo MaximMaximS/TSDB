@@ -1,4 +1,4 @@
-import { SEFormat } from "@/lib/format";
+import { SEFormat } from "@/lib/utils";
 import type { Episode } from "@prisma/client";
 import Link from "next/link";
 

@@ -1,3 +1,5 @@
+import "server-only";
+
 import type { Episode } from "@prisma/client";
 import { headers } from "next/headers";
 import { message } from "statuses";

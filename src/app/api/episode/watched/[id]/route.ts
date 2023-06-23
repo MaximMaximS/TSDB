@@ -1,5 +1,5 @@
-import { apiAuth, basicResponse, parseId, parseJson } from "@/lib/api";
-import prisma from "@/lib/prisma";
+import { apiAuth, basicResponse, parseId, parseJson } from "@/lib/server/api";
+import prisma from "@/lib/server/prisma";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 

@@ -1,4 +1,4 @@
-import { found } from "@/lib/format";
+import { found } from "@/lib/utils";
 import { Loader } from "lucide-react";
 
 import getEpisodes from "./get-episodes";
