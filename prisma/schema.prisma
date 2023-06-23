@@ -4,7 +4,6 @@
 generator client {
   provider        = "prisma-client-js"
   binaryTargets   = ["native"]
-  previewFeatures = ["clientExtensions"]
 }
 
 generator docs {
@@ -35,4 +34,16 @@ model User {
   username String    @unique
   password String
   watched  Episode[]
+  sessions Session[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+  lastUsed  DateTime
+  ip        String
+  agent     String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
 }
