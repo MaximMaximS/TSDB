@@ -1,6 +1,5 @@
 import SiteHeader from "@/components/header/site-header";
 import SiteFooter from "@/components/site-footer";
-import { Toaster } from "@/components/ui/toaster";
 import siteConfig from "@/config/site";
 import { cn } from "@/lib/utils";
 // eslint-disable-next-line camelcase
@@ -54,7 +53,6 @@ export default function RootLayout({
             <main className="flex grow">{children}</main>
             <SiteFooter />
           </div>
-          <Toaster />
         </Providers>
       </body>
     </html>
