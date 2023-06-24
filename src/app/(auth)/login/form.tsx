@@ -1,5 +1,6 @@
 "use client";
 
+import { login } from "@/actions/auth";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -9,29 +10,37 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/components/ui/use-toast";
 import { Loader2 } from "lucide-react";
-import { type FormEvent, useRef, useState } from "react";
-
-import { login } from "./actions";
+import { useRouter } from "next/navigation";
+import { useRef, useTransition } from "react";
 
 export default function Form() {
   const username = useRef<HTMLInputElement>(null);
   const password = useRef<HTMLInputElement>(null);
 
-  const [pending, setPending] = useState(false);
+  const [isPending, startTransition] = useTransition();
+  const router = useRouter();
+  const { toast } = useToast();
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const usr = username.current;
     const pwd = password.current;
     if (usr === null || pwd === null) return;
 
-    setPending(true);
-
-    const token = await login(usr.value, pwd.value);
-    console.log(token);
-    setPending(false);
+    startTransition(async () => {
+      const result = await login(usr.value, pwd.value);
+      if (result) {
+        router.refresh();
+      } else {
+        toast({
+          title: "Login failed",
+          description: "Invalid username or password.",
+        });
+      }
+    });
   }
 
   return (
@@ -42,7 +51,7 @@ export default function Form() {
       <CardContent>
         <form
           id="login-form"
-          onSubmit={(e) => void handleSubmit(e)}
+          onSubmit={handleSubmit}
           className="grid w-full items-center gap-4">
           <Input
             name="username"
@@ -59,10 +68,10 @@ export default function Form() {
         </form>
       </CardContent>
       <CardFooter className="flex justify-between">
-        <Button disabled={pending} form="login-form">
+        <Button disabled={isPending} form="login-form">
           Login
         </Button>
-        {pending && <Loader2 className="animate-spin" />}
+        {isPending && <Loader2 className="animate-spin" />}
       </CardFooter>
     </Card>
   );

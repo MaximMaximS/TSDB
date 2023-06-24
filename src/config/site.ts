@@ -23,6 +23,7 @@ const siteConfig = {
     minPasswordLength: 8,
     minUsernameLength: 3,
     minSearchQueryLength: 3,
+    sessionLength: 1000 * 60 * 60 * 24 * 7, // 7 days
   },
 } as const;
 

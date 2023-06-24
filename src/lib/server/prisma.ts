@@ -2,8 +2,7 @@ import "server-only";
 
 import { PrismaClient } from "@prisma/client";
 
-import Auth from "./auth";
-import Content from "./content";
+import { Auth, Content } from "./modules";
 
 function newPrisma() {
   const prisma = new PrismaClient(
@@ -22,6 +21,9 @@ function newPrisma() {
       episode: {
         get: content.get,
         search: content.search,
+      },
+      session: {
+        new: auth.createSession,
       },
     },
   });

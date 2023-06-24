@@ -29,6 +29,15 @@ export function pad(n: number) {
   return n.toString().padStart(2, "0");
 }
 
-export function SEFormat(se: number, ep: number) {
+export function seFormat(se: number, ep: number) {
   return `S${pad(se)}E${pad(ep)}`;
+}
+
+/**
+ * Check if an object is not null or undefined
+ * @param obj Object to check
+ * @returns Whether the object is not null or undefined
+ */
+export function nn<T>(obj: T | undefined | null) {
+  return obj !== undefined && obj !== null;
 }

@@ -41,9 +41,9 @@ model Session {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
   expiresAt DateTime
-  lastUsed  DateTime
-  ip        String
-  agent     String
+  lastUsed  DateTime @default(now())
+  ip        String?
+  agent     String?
   userId    String
   user      User     @relation(fields: [userId], references: [id])
 }

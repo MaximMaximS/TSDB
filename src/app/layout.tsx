@@ -1,12 +1,13 @@
 import SiteHeader from "@/components/header/site-header";
+import Providers from "@/components/providers/providers";
 import SiteFooter from "@/components/site-footer";
+import { Toaster } from "@/components/ui/toaster";
 import siteConfig from "@/config/site";
 import { cn } from "@/lib/utils";
 // eslint-disable-next-line camelcase
 import { Roboto_Mono, Rubik } from "next/font/google";
 
 import "./globals.css";
-import Providers from "./providers";
 
 const sans = Rubik({
   display: "swap",
@@ -36,11 +37,7 @@ export const metadata = {
   authors: siteConfig.author,
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
@@ -53,6 +50,7 @@ export default function RootLayout({
             <main className="flex grow">{children}</main>
             <SiteFooter />
           </div>
+          <Toaster />
         </Providers>
       </body>
     </html>

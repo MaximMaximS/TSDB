@@ -1,4 +1,4 @@
-import { SEFormat } from "@/lib/utils";
+import { seFormat } from "@/lib/utils";
 import type { Episode } from "@prisma/client";
 import Link from "next/link";
 
@@ -15,7 +15,7 @@ export default function EpisodeLink({ episode, type }: EpisodeLinkProps) {
       className="underline-offset-4 hover:underline">
       {type === "title"
         ? episode.title
-        : SEFormat(episode.season, episode.episode)}
+        : seFormat(episode.season, episode.episode)}
     </Link>
   );
 }

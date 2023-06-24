@@ -14,7 +14,7 @@ async function main() {
   await prisma.user.create({
     data: {
       username: "admin",
-      password: await argon2.hash("admin"),
+      password: await argon2.hash("adminadmin"),
       watched: {
         connect: {
           id: 1,

@@ -11,9 +11,10 @@ module.exports = {
   tailwindConfig: "./tailwind.config.js",
   importOrder: [
     "server-only",
-    "^@lib/server/(.*)$",
     "<THIRD_PARTY_MODULES>",
+    "^@lib/server/(.*)$",
     "^@lib/(.*)$",
+    "^@components/(.*)$",
     "^[./]",
   ],
   importOrderSeparation: true,

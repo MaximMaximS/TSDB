@@ -21,7 +21,6 @@ export default function EpisodeTable({ query }: { query: string }) {
             <Caption query={query} />
           </Wrapper>
         </TableCaption>
-
         <TableHeader>
           <TableRow>
             <TableHead className="w-[5.5rem]">Number</TableHead>
