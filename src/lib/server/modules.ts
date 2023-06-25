@@ -4,6 +4,8 @@ import siteConfig from "@/config/site";
 import type { PrismaClient } from "@prisma/client";
 import { hash, verify } from "argon2";
 
+import { genId } from "./utils";
+
 interface SessionPayload {
   id: string;
   expiresAt: Date;
@@ -60,7 +62,7 @@ export class Auth {
     const hsh = await hash(password);
 
     const user = await this.prisma.user.create({
-      data: { username, password: hsh },
+      data: { id: genId(), username, password: hsh },
       select: { id: true },
     });
     return user.id;
@@ -74,6 +76,7 @@ export class Auth {
   }: SessionPayload) => {
     const { id: sessionId } = await this.prisma.session.create({
       data: {
+        id: genId(),
         ip,
         agent,
         expiresAt,

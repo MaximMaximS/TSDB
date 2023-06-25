@@ -30,7 +30,7 @@ model Episode {
 }
 
 model User {
-  id       String    @id @default(cuid())
+  id       String    @id
   username String    @unique
   password String
   watched  Episode[]
@@ -38,7 +38,7 @@ model User {
 }
 
 model Session {
-  id        String   @id @default(cuid())
+  id        String   @id
   createdAt DateTime @default(now())
   expiresAt DateTime
   lastUsed  DateTime @default(now())

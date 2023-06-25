@@ -1,6 +1,7 @@
 import "server-only";
 
 import siteConfig from "@/config/site";
+import { nanoid } from "nanoid";
 import { cache } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -15,4 +16,8 @@ export function cacher<T extends Func>(fn: T) {
 
 export function expirity() {
   return new Date(Date.now() + siteConfig.security.sessionLength);
+}
+
+export function genId() {
+  return nanoid();
 }
