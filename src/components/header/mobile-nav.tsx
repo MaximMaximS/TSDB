@@ -9,7 +9,7 @@ import { SidebarOpen } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function MobileNav() {
+export default function MobileNav({ logged }: { logged: boolean }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -32,14 +32,16 @@ export default function MobileNav() {
         </Link>
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
           <div className="flex flex-col space-y-3">
-            {siteConfig.paths.map((path) => (
-              <Link
-                onClick={() => setOpen(false)}
-                key={path.href}
-                href={path.href}>
-                {path.label}
-              </Link>
-            ))}
+            {siteConfig.paths
+              .filter(({ login }) => !(!logged && login))
+              .map((path) => (
+                <Link
+                  onClick={() => setOpen(false)}
+                  key={path.href}
+                  href={path.href}>
+                  {path.label}
+                </Link>
+              ))}
           </div>
         </ScrollArea>
       </SheetContent>

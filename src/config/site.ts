@@ -13,10 +13,12 @@ const siteConfig = {
     {
       label: "Home",
       href: "/",
+      login: false,
     },
     {
       label: "Search",
       href: "/search",
+      login: true,
     },
   ],
   security: {
