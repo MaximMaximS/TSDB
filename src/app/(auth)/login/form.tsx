@@ -1,6 +1,5 @@
 "use client";
 
-import { login } from "@/actions/auth";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -11,6 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
+import { login } from "@/lib/actions/auth";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useRef, useTransition } from "react";
@@ -23,15 +23,13 @@ export default function Form() {
   const router = useRouter();
   const { toast } = useToast();
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-
+  async function handleSubmit() {
     const usr = username.current;
     const pwd = password.current;
     if (usr === null || pwd === null) return;
 
-    startTransition(async () => {
-      const result = await login(usr.value, pwd.value);
+    const result = await login(usr.value, pwd.value);
+    startTransition(() => {
       if (result) {
         router.refresh();
       } else {
@@ -51,7 +49,10 @@ export default function Form() {
       <CardContent>
         <form
           id="login-form"
-          onSubmit={handleSubmit}
+          onSubmit={(e) => {
+            e.preventDefault();
+            void handleSubmit();
+          }}
           className="grid w-full items-center gap-4">
           <Input
             name="username"

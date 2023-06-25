@@ -1,6 +1,5 @@
 "use client";
 
-import { logout } from "@/actions/auth";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -12,23 +11,29 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/button";
+import { logout } from "@/lib/actions/auth";
 import { User2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useTransition } from "react";
 
 export default function UserIcon() {
   const router = useRouter();
+  const [isPending, startTransition] = useTransition();
 
   async function handleLogout() {
     await logout();
-    router.refresh();
+    startTransition(() => {
+      router.refresh();
+    });
   }
 
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <button>
+        <Button variant="ghost" size="sm" className="w-9 px-0">
           <User2 />
-        </button>
+        </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
@@ -38,8 +43,15 @@ export default function UserIcon() {
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction onClick={handleLogout}>Logout</AlertDialogAction>
+          <AlertDialogCancel disabled={isPending}>Cancel</AlertDialogCancel>
+          <AlertDialogAction
+            disabled={isPending}
+            onClick={(e) => {
+              e.preventDefault();
+              void handleLogout();
+            }}>
+            Logout
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
