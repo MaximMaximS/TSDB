@@ -14,7 +14,7 @@ import {
 import { useToast } from "@/components/ui/use-toast";
 import { logout } from "@/lib/actions/auth";
 import { useRouter } from "next/navigation";
-import { useTransition } from "react";
+import { useState } from "react";
 
 export default function LogoutDialog({
   children,
@@ -22,7 +22,7 @@ export default function LogoutDialog({
   children: React.ReactNode;
 }) {
   const router = useRouter();
-  const [isPending, startTransition] = useTransition();
+  const [pending, setPending] = useState(false);
   const { toast } = useToast();
 
   async function handleLogout() {
@@ -32,11 +32,20 @@ export default function LogoutDialog({
         title: "Logout failed",
         description: "Please try again.",
       });
+      setPending(false);
       return;
     }
-    startTransition(() => {
-      router.refresh();
+    router.refresh();
+    toast({
+      title: "Logout successful",
     });
+    setPending(false);
+  }
+
+  function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    setPending(true);
+    void handleLogout();
   }
 
   return (
@@ -50,13 +59,8 @@ export default function LogoutDialog({
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel disabled={isPending}>Cancel</AlertDialogCancel>
-          <AlertDialogAction
-            disabled={isPending}
-            onClick={(e) => {
-              e.preventDefault();
-              void handleLogout();
-            }}>
+          <AlertDialogCancel disabled={pending}>Cancel</AlertDialogCancel>
+          <AlertDialogAction disabled={pending} onClick={handleSubmit}>
             Logout
           </AlertDialogAction>
         </AlertDialogFooter>

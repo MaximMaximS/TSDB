@@ -29,6 +29,12 @@ export function pad(n: number) {
   return n.toString().padStart(2, "0");
 }
 
+/**
+ * Formats a season and episode number into (SXXEXX) format
+ * @param se Season number
+ * @param ep Episode number
+ * @returns Formatted string
+ */
 export function seFormat(se: number, ep: number) {
   return `S${pad(se)}E${pad(ep)}`;
 }

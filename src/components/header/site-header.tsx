@@ -1,13 +1,13 @@
 import MainNav from "@/components/header/main-nav";
 import ModeToggle from "@/components/header/mode-toggle";
-import { useSession } from "@/lib/server/auth";
+import { getSession } from "@/lib/server/auth";
 
 import LoginButton from "./login-button";
 import MobileNav from "./mobile-nav";
 import UserIcon from "./user-icon";
 
 export default async function SiteHeader() {
-  const session = await useSession();
+  const session = await getSession();
 
   return (
     <header className="supports-backdrop-blur:bg-background/60 sticky top-0 z-40 w-full border-b bg-background/95 shadow-sm backdrop-blur">

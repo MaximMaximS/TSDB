@@ -1,6 +1,5 @@
 import Site from "@/components/site";
-import { useSession } from "@/lib/server/auth";
-import { redirect } from "next/navigation";
+import { authWall } from "@/lib/server/auth";
 
 import SearchBox from "./search-box";
 import SearchProvider from "./search-provider";
@@ -11,10 +10,7 @@ export default async function Page({
 }: {
   searchParams: { q?: string };
 }) {
-  const session = await useSession();
-  if (session === null) {
-    redirect("/");
-  }
+  await authWall();
   const q = searchParams.q ?? "";
   return (
     <Site>

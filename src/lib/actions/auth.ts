@@ -4,6 +4,12 @@ import prisma from "@/lib/server/prisma";
 import { expirity } from "@/lib/server/utils";
 import { cookies, headers as getHeaders } from "next/headers";
 
+/**
+ * Creates new user session
+ * @param username Username
+ * @param password Password
+ * @returns Whether the login was successful
+ */
 export async function login(username: string, password: string) {
   const headers = getHeaders();
   const ip = headers.get("x-real-ip");

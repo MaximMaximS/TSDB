@@ -2,21 +2,26 @@
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { cn } from "@/lib/utils";
 import { forwardRef } from "react";
 
-interface FormInputProps {
+interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string;
-  type: string;
   label: string;
 }
 
 const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
-  ({ id, type, label }, ref) => (
+  ({ id, label, className, ...props }, ref) => (
     <div className="grid grid-cols-4 items-center gap-4">
       <Label htmlFor={id} className="text-right">
         {label}
       </Label>
-      <Input id={id} type={type} className="col-span-3" ref={ref} />
+      <Input
+        id={id}
+        className={cn("col-span-3", className)}
+        ref={ref}
+        {...props}
+      />
     </div>
   )
 );

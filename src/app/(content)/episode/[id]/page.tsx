@@ -1,15 +1,11 @@
 import Site from "@/components/site";
 import { h1ClassName } from "@/components/typography";
-import { useSession } from "@/lib/server/auth";
-import { redirect } from "next/navigation";
+import { authWall } from "@/lib/server/auth";
 
 import getEpisode from "./get-episode";
 
 export default async function Page({ params }: { params: { id: string } }) {
-  const session = await useSession();
-  if (session === null) {
-    redirect("/");
-  }
+  await authWall();
 
   const id = Number.parseInt(params.id);
 

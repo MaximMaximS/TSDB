@@ -13,7 +13,7 @@ import {
 import { useToast } from "@/components/ui/use-toast";
 import { login } from "@/lib/actions/auth";
 import { useRouter } from "next/navigation";
-import { useRef, useTransition } from "react";
+import { useRef, useState } from "react";
 
 import FormInput from "./form-input";
 
@@ -23,7 +23,7 @@ export default function LoginDialog({
   children: React.ReactNode;
 }) {
   const router = useRouter();
-  const [isPending, startTransition] = useTransition();
+  const [pending, setPending] = useState(false);
   const username = useRef<HTMLInputElement>(null);
   const password = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
@@ -35,11 +35,14 @@ export default function LoginDialog({
         title: "Login failed",
         description: "Invalid username or password.",
       });
+      setPending(false);
       return;
     }
-    startTransition(() => {
-      router.refresh();
+    router.refresh();
+    toast({
+      title: "Login successful",
     });
+    setPending(false);
   }
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -47,6 +50,7 @@ export default function LoginDialog({
     const usr = username.current;
     const pwd = password.current;
     if (usr === null || pwd === null) return;
+    setPending(true);
     void handleLogin(usr.value, pwd.value);
   }
 
@@ -78,7 +82,7 @@ export default function LoginDialog({
           />
         </form>
         <DialogFooter>
-          <Button form="login-form" disabled={isPending}>
+          <Button form="login-form" disabled={pending}>
             Login
           </Button>
         </DialogFooter>
