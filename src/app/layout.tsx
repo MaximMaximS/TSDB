@@ -6,6 +6,7 @@ import siteConfig from "@/config/site";
 import { cn } from "@/lib/utils";
 // eslint-disable-next-line camelcase
 import { Roboto_Mono, Rubik } from "next/font/google";
+import localFont from "next/font/local";
 
 import "./globals.css";
 
@@ -21,6 +22,12 @@ const mono = Roboto_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
   weight: "variable",
+});
+
+const simpsons = localFont({
+  src: "./../../public/assets/fonts/simpsons.ttf",
+  display: "swap",
+  variable: "--font-simpsons",
 });
 
 export const metadata = {
@@ -41,7 +48,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
-      className={cn(sans.variable, mono.variable)}
+      className={cn(sans.variable, mono.variable, simpsons.variable)}
       suppressHydrationWarning>
       <body>
         <Providers>

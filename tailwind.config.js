@@ -57,6 +57,7 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-sans)"],
         mono: ["var(--font-mono)"],
+        simpsons: ["var(--font-simpsons)"],
       },
       keyframes: {
         "accordion-down": {
