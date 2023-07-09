@@ -1,9 +1,11 @@
 // @ts-check
 
+const prod = process.env.NODE_ENV === "production";
+
 const CSP = `
 default-src 'self';
-script-src 'unsafe-inline' 'unsafe-eval' 'self';
-style-src 'unsafe-inline' 'self';
+script-src ${!prod && "'unsafe-eval'"} 'unsafe-inline' 'self';
+style-src 'self' 'unsafe-inline';
 object-src 'none';
 base-uri 'self';
 connect-src 'self';
@@ -30,7 +32,7 @@ const nextConfig = {
         source: "/(.*)",
         headers: [
           {
-            key: "Content-Security-Policy",
+            key: "Content-Security-Policy-Report-Only",
             value: CSP.replace(/\s+/g, " ").trim(),
           },
           {
@@ -54,7 +56,7 @@ const nextConfig = {
             value: "?1",
           },
           {
-            key: "Refferrer-Policy",
+            key: "Referrer-Policy",
             value: "no-referrer",
           },
           {
@@ -76,7 +78,7 @@ const nextConfig = {
           },
           {
             key: "X-XSS-Protection",
-            value: "0",
+            value: "1",
           },
         ],
       },

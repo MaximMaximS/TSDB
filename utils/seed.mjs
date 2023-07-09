@@ -1,4 +1,4 @@
-import { genId } from "&/lib/server/utils";
+// @ts-check
 import { PrismaClient } from "@prisma/client";
 import argon2 from "argon2";
 import { config } from "dotenv";
@@ -14,7 +14,7 @@ async function main() {
   await prisma.$connect();
   await prisma.user.create({
     data: {
-      id: genId(),
+      id: "admin",
       username: "admin",
       password: await argon2.hash("adminadmin"),
       watched: {

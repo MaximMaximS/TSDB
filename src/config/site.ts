@@ -30,5 +30,3 @@ const siteConfig = {
 } as const;
 
 export default siteConfig;
-
-export type SiteConfig = typeof siteConfig;

@@ -7,7 +7,7 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
 COPY prisma ./prisma
 
-RUN npm install -g pnpm@latest && pnpm install --frozen-lockfile && pnpm run generate
+RUN npm install -g pnpm@latest && pnpm run deps
 
 FROM base AS builder
 WORKDIR /app

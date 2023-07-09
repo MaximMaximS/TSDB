@@ -1,6 +1,7 @@
-import { genId } from "&/lib/server/utils";
+// @ts-check
 import { PrismaClient } from "@prisma/client";
 import { hash } from "argon2";
+import { nanoid } from "nanoid";
 import { createInterface } from "node:readline/promises";
 
 const prisma = new PrismaClient();
@@ -11,6 +12,7 @@ const rl = createInterface({
 });
 
 async function main() {
+  await prisma.$connect();
   const username = await rl.question("Username: ");
   const password = await rl.question("Password: ");
 
@@ -28,7 +30,7 @@ async function main() {
   const hsh = await hash(password);
 
   const user = await prisma.user.create({
-    data: { id: genId(), username, password: hsh },
+    data: { id: nanoid(), username, password: hsh },
     select: { id: true },
   });
   console.log(`Registered user with id ${user.id}`);

@@ -76,7 +76,7 @@ export class Auth {
   }: SessionPayload) => {
     const { id: sessionId } = await this.prisma.session.create({
       data: {
-        id: genId(),
+        id: genId(32),
         ip,
         agent,
         expiresAt,

@@ -1,11 +1,10 @@
 "use client";
 
-import type { SiteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-type Href = SiteConfig["paths"][number]["href"];
+type Href = Parameters<typeof Link>[0]["href"];
 
 export default function NavLink({
   href,

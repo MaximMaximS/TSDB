@@ -2,6 +2,7 @@ import "server-only";
 
 import siteConfig from "@/config/site";
 import { nanoid } from "nanoid";
+import { headers } from "next/headers";
 import { cache } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -31,6 +32,17 @@ export function expirity() {
  * ID generator
  * @returns A random ID
  */
-export function genId() {
-  return nanoid();
+export function genId(len?: number) {
+  return nanoid(len);
+}
+
+/**
+ * Extracts the IP and user agent from a request
+ * @returns IP and user agent
+ */
+export function reqInfo() {
+  const head = headers();
+  const ip = head.get("x-real-ip");
+  const agent = head.get("user-agent");
+  return { ip, agent };
 }

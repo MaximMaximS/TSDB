@@ -1,8 +1,8 @@
 "use server";
 
 import prisma from "@/lib/server/prisma";
-import { expirity } from "@/lib/server/utils";
-import { cookies, headers as getHeaders } from "next/headers";
+import { expirity, reqInfo } from "@/lib/server/utils";
+import { cookies } from "next/headers";
 
 /**
  * Creates new user session
@@ -11,9 +11,7 @@ import { cookies, headers as getHeaders } from "next/headers";
  * @returns Whether the login was successful
  */
 export async function login(username: string, password: string) {
-  const headers = getHeaders();
-  const ip = headers.get("x-real-ip");
-  const agent = headers.get("user-agent");
+  const { ip, agent } = reqInfo();
   const id = await prisma.user.login(username, password);
   if (id === null) {
     return false;
@@ -28,7 +26,7 @@ export async function login(username: string, password: string) {
     sameSite: "strict",
     secure: true,
     path: "/",
-    expires: expiresAt,
+    expires: new Date(expiresAt.getTime() - 60_000),
   });
 
   return true;

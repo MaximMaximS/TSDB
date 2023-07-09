@@ -1,3 +1,4 @@
+// @ts-check
 // File system
 import { PrismaClient } from "@prisma/client";
 import axios from "axios";
@@ -22,11 +23,11 @@ if (!fs.existsSync("./utils/data")) {
 
 /**
  * Fetches or load page from cache and returns it
- * @param url URL of the page to fetch
- * @param alias Alias of the page (used for caching)
+ * @param {URL} url URL of the page to fetch
+ * @param {string} alias Alias of the page (used for caching)
  * @returns Fetched page
  */
-async function fetchSite(url: URL, alias: string) {
+async function fetchSite(url, alias) {
   if (process.env["FETCH"] !== "true") {
     try {
       return fs.readFileSync(`./utils/data/pages/${alias}.html`).toString();
@@ -74,7 +75,13 @@ const months = new Map([
   ["prosince", 12],
 ]);
 
-async function generateEpisode(link: string, alias: string) {
+/**
+ * Generates episode data from a link
+ * @param {string} link URL of the episode
+ * @param {string} alias Alias of the episode (used for caching)
+ * @returns Episode data
+ */
+async function generateEpisode(link, alias) {
   const page = await fetchSite(new URL(link), alias);
   const $ = load(page);
 
@@ -113,7 +120,9 @@ async function generateEpisode(link: string, alias: string) {
     throw new Error(`Failed to parse premiere ${prm}`);
   }
 
-  const premiere = prem.map((x) => x.trim()) as [string, string, string];
+  const premiere = /** @type {[string, string, string]} */ (
+    prem.map((x) => x.trim())
+  );
 
   const m = months.get(premiere[1]);
   if (m === undefined) {
@@ -136,7 +145,8 @@ async function generateEpisode(link: string, alias: string) {
     if (text.length === 0) {
       continue;
     }
-    plot += text.replaceAll(/\n+/g, "\n") + "\n";
+    // eslint-disable-next-line unicorn/prefer-string-replace-all
+    plot += text.replace(/\n+/g, "\n") + "\n";
   }
 
   plot = plot.trim();
@@ -163,6 +173,9 @@ async function main() {
   console.log(`Found ${episodeRows.length} episodes`);
 
   // Get first link in each div.r1
+  /**
+   * @type {[string, string][]}
+   */
   const links = episodeRows.map((el) => {
     const e = $(el);
     const link = e.find("a").first();
@@ -171,10 +184,13 @@ async function main() {
     if (href === undefined || alias.length === 0) {
       throw new Error("Failed to parse episode link");
     }
-    return [href, alias] as const;
+    return [href, alias];
   });
 
-  let e: Awaited<ReturnType<typeof generateEpisode>>[] = [];
+  /**
+   * @type {Awaited<ReturnType<typeof generateEpisode>>[]}
+   */
+  let e = [];
   if (SLOW) {
     for (const element of links) {
       e.push(await generateEpisode(...element));
