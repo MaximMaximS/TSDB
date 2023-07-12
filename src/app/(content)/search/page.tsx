@@ -1,4 +1,3 @@
-import Site from "@/components/site";
 import { authWall } from "@/lib/server/auth";
 
 import SearchBox from "./search-box";
@@ -12,12 +11,11 @@ export default async function Page({
 }) {
   await authWall();
   const q = searchParams.q ?? "";
+
   return (
-    <Site>
-      <SearchProvider>
-        <SearchBox />
-        <EpisodeTable query={q} />
-      </SearchProvider>
-    </Site>
+    <SearchProvider>
+      <SearchBox />
+      <EpisodeTable query={q} />
+    </SearchProvider>
   );
 }

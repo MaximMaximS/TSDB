@@ -1,4 +1,3 @@
-import Site from "@/components/site";
 import { h1ClassName } from "@/components/typography";
 import { authWall } from "@/lib/server/auth";
 
@@ -19,9 +18,5 @@ export default async function Page({ params }: { params: { id: string } }) {
     throw new Error("Episode not found");
   }
 
-  return (
-    <Site>
-      <h1 className={h1ClassName}>{episode.title}</h1>
-    </Site>
-  );
+  return <h1 className={h1ClassName}>{episode.title}</h1>;
 }

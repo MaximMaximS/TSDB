@@ -1,6 +1,7 @@
-import SiteHeader from "@/components/header/site-header";
+import Site from "@/components/layout/site";
+import SiteFooter from "@/components/layout/site-footer";
+import SiteHeader from "@/components/layout/site-header";
 import Providers from "@/components/providers/providers";
-import SiteFooter from "@/components/site-footer";
 import { Toaster } from "@/components/ui/toaster";
 import siteConfig from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -54,7 +55,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <Providers>
           <div className="relative flex min-h-screen flex-col">
             <SiteHeader />
-            <main className="flex grow">{children}</main>
+            <main className="flex grow">
+              <Site>{children}</Site>
+            </main>
             <SiteFooter />
           </div>
           <Toaster />

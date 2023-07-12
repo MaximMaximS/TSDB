@@ -26,7 +26,7 @@ export async function login(username: string, password: string) {
     sameSite: "strict",
     secure: true,
     path: "/",
-    expires: new Date(expiresAt.getTime() - 60_000),
+    expires: expiresAt,
   });
 
   return true;

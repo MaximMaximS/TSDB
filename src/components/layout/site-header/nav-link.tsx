@@ -11,7 +11,7 @@ export default function NavLink({
   label,
 }: {
   href: Href;
-  label: string;
+  label: React.ReactNode;
 }) {
   const pathname = usePathname();
 

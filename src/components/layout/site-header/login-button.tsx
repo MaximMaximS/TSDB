@@ -1,6 +1,5 @@
+import LoginDialog from "@/components/dialogs/login-dialog";
 import { Button } from "@/components/ui/button";
-
-import LoginDialog from "../dialogs/login-dialog";
 
 export default function LoginButton() {
   return (

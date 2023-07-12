@@ -33,7 +33,7 @@ export default function MobileNav({ logged }: { logged: boolean }) {
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
           <div className="flex flex-col space-y-3">
             {siteConfig.paths
-              .filter(({ login }) => !(!logged && login))
+              .filter(({ login }) => !login || logged)
               .map((path) => (
                 <Link
                   onClick={() => setOpen(false)}

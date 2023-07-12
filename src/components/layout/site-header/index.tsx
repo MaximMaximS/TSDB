@@ -1,9 +1,9 @@
-import MainNav from "@/components/header/main-nav";
-import ModeToggle from "@/components/header/mode-toggle";
 import { getSession } from "@/lib/server/auth";
 
 import LoginButton from "./login-button";
+import MainNav from "./main-nav";
 import MobileNav from "./mobile-nav";
+import ModeToggle from "./mode-toggle";
 import UserIcon from "./user-icon";
 
 export default async function SiteHeader() {
