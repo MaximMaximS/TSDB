@@ -9,7 +9,7 @@ export default function MainNav({ logged }: { logged: boolean }) {
   return (
     <div className="mr-4 hidden md:flex">
       <Link href="/" className="mr-6 flex items-center space-x-2">
-        <Logo className="h-6 w-6 animate-out fade-out" />
+        <Logo width={24} height={24} className="animate-out fade-out" />
         <span className="hidden font-bold sm:inline-block">
           {siteConfig.name}
         </span>

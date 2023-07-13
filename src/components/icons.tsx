@@ -1,8 +1,13 @@
 import LogoIcon from "&/assets/images/logo.png";
 import Image from "next/image";
 
-export function Logo({ className }: { className?: string }) {
-  return <Image src={LogoIcon} alt="Logo" className={className} />;
+type LogoProps = Omit<
+  React.ComponentPropsWithoutRef<typeof Image>,
+  "src" | "alt"
+>;
+
+export function Logo(props: LogoProps) {
+  return <Image src={LogoIcon} alt="Logo" {...props} />;
 }
 
 export function GitHub({ className }: { className?: string }) {

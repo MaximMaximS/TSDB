@@ -27,7 +27,7 @@ export default function MobileNav({ logged }: { logged: boolean }) {
           href="/"
           onClick={() => setOpen(false)}
           className="flex items-center">
-          <Logo className="mr-2 h-4 w-4" />
+          <Logo width={16} height={16} className="mr-2" />
           <span className="font-bold">{siteConfig.name}</span>
         </Link>
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
