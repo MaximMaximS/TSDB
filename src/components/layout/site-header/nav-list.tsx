@@ -20,11 +20,11 @@ export default function NavList({ children }: { children: React.ReactNode }) {
           return;
         menu.current.style.setProperty(
           "--underline-width",
-          `${target.offsetWidth}px`
+          `${target.offsetWidth}px`,
         );
         menu.current.style.setProperty(
           "--underline-offset",
-          `${target.offsetLeft}px`
+          `${target.offsetLeft}px`,
         );
       }}
       onMouseLeave={() => {

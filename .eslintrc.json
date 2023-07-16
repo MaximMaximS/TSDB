@@ -56,6 +56,6 @@
     "postcss.config.js",
     "tailwind.config.js",
     "next.config.mjs",
-    "prettier.config.js"
+    "prettier.config.mjs"
   ]
 }

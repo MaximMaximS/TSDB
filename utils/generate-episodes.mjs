@@ -108,7 +108,7 @@ async function generateEpisode(link, alias) {
 
   if (czechName !== title) {
     throw new Error(
-      `Czech name ${czechName} does not match title ${title} for episode ${alias}`
+      `Czech name ${czechName} does not match title ${title} for episode ${alias}`,
     );
   }
   const prm = $("td:contains('Premiéra')").next().text().trim();
@@ -132,8 +132,8 @@ async function generateEpisode(link, alias) {
     Date.UTC(
       z.coerce.number().parse(premiere[2]),
       m - 1,
-      z.coerce.number().parse(premiere[0].slice(0, -1))
-    )
+      z.coerce.number().parse(premiere[0].slice(0, -1)),
+    ),
   );
 
   const ps = $("div.down-block > p").toArray();
@@ -163,7 +163,7 @@ async function generateEpisode(link, alias) {
 async function main() {
   const root = await fetchSite(
     new URL("https://www.serialzone.cz/serial/simpsonovi/epizody/"),
-    "root"
+    "root",
   );
   const $ = load(root);
 
@@ -228,7 +228,7 @@ async function main() {
 
     fs.writeFileSync(
       "./utils/data/episodes.json",
-      JSON.stringify(ided, null, 2)
+      JSON.stringify(ided, null, 2),
     );
     return;
   }

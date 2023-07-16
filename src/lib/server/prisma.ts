@@ -6,7 +6,7 @@ import { Auth, Content } from "./modules";
 
 function newPrisma() {
   const prisma = new PrismaClient(
-    process.env.NODE_ENV === "development" ? { log: ["query"] } : undefined
+    process.env.NODE_ENV === "development" ? { log: ["query"] } : undefined,
   );
 
   const auth = new Auth(prisma);

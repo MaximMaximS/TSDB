@@ -82,7 +82,7 @@ export function parseId(id: unknown) {
  */
 export async function parseJson<T>(
   request: Request,
-  parser: (json: unknown) => T
+  parser: (json: unknown) => T,
 ) {
   try {
     const json = (await request.json()) as unknown;

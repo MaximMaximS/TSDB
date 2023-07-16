@@ -9,7 +9,7 @@ export async function GET(
     params,
   }: {
     params: { id: string };
-  }
+  },
 ) {
   const uid = await apiAuth();
   if (uid instanceof Response) {
@@ -41,7 +41,7 @@ export async function POST(
     params,
   }: {
     params: { id: string };
-  }
+  },
 ) {
   const uid = await apiAuth();
   if (uid instanceof Response) {

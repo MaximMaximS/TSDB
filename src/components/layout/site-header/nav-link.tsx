@@ -20,7 +20,7 @@ export default function NavLink({
       href={href}
       className={cn(
         "transition-colors hover:text-foreground/80",
-        pathname === href ? "text-foreground" : "text-foreground/60"
+        pathname === href ? "text-foreground" : "text-foreground/60",
       )}>
       {label}
     </Link>

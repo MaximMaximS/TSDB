@@ -13,7 +13,7 @@ const userSchema = z.array(
     username: z.string(),
     password: z.string(),
     watched: z.array(z.object({ id: z.number() })),
-  })
+  }),
 );
 
 const parsed = userSchema.parse(users);

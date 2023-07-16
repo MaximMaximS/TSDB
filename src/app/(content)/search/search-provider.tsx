@@ -9,7 +9,7 @@ import {
 
 const IsPendingContext = createContext<boolean | null>(null);
 const StartTransitionContext = createContext<TransitionStartFunction | null>(
-  null
+  null,
 );
 
 export function useIsPending() {
