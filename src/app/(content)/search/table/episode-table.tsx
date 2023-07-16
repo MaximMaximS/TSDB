@@ -7,7 +7,8 @@ import {
 } from "@/components/ui/table";
 
 import Episodes from "./episodes";
-import Wrapper from "./wrapper";
+
+//import Wrapper from "./wrapper";
 
 export default function EpisodeTable({ query }: { query: string }) {
   return (
@@ -20,9 +21,7 @@ export default function EpisodeTable({ query }: { query: string }) {
           </TableRow>
         </TableHeader>
         <TableBody>
-          <Wrapper>
-            <Episodes query={query} />
-          </Wrapper>
+          <Episodes query={query} />
         </TableBody>
       </Table>
     </div>

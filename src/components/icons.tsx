@@ -1,4 +1,4 @@
-import LogoIcon from "&/assets/images/logo.png";
+import LogoIcon from "&/images/logo.png";
 import Image from "next/image";
 
 type LogoProps = Omit<

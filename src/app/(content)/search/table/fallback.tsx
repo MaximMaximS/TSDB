@@ -10,6 +10,6 @@ interface FallbackProps {
 }
 
 export default function Fallback({ children, fallback }: FallbackProps) {
-  const isPending = useIsPending();
-  return <>{isPending ? fallback : children}</>;
+  const show = useIsPending() && fallback !== undefined;
+  return <>{show ? fallback : children}</>;
 }

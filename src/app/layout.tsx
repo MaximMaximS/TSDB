@@ -1,7 +1,7 @@
 import Site from "@/components/layout/site";
 import SiteFooter from "@/components/layout/site-footer";
 import SiteHeader from "@/components/layout/site-header";
-import Providers from "@/components/providers/providers";
+import Providers from "@/components/providers";
 import { Toaster } from "@/components/ui/toaster";
 import siteConfig from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -26,7 +26,7 @@ const mono = Roboto_Mono({
 });
 
 const simpsons = localFont({
-  src: "./../../public/assets/fonts/simpsons.ttf",
+  src: "./../../assets/fonts/simpsons.ttf",
   display: "swap",
   variable: "--font-simpsons",
 });
