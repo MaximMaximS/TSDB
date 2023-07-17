@@ -1,8 +1,9 @@
 import "server-only";
 
-import siteConfig from "@/config/site";
 import type { PrismaClient } from "@prisma/client";
 import { hash, verify } from "argon2";
+
+import siteConfig from "@/config/site";
 
 import { genId } from "./utils";
 

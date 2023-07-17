@@ -1,8 +1,9 @@
 "use client";
 
-import { Input } from "@/components/ui/input";
 import { useRouter, useSearchParams } from "next/navigation";
 import type { ChangeEvent } from "react";
+
+import { Input } from "@/components/ui/input";
 
 import { useStartTransition } from "./search-provider";
 

@@ -1,10 +1,10 @@
 // @ts-check
 // File system
+import fs from "node:fs";
+import { URL } from "node:url";
 import { PrismaClient } from "@prisma/client";
 import axios from "axios";
 import { load } from "cheerio";
-import fs from "node:fs";
-import { URL } from "node:url";
 import { SocksProxyAgent } from "socks-proxy-agent";
 import { z } from "zod";
 

@@ -1,4 +1,3 @@
-import { cn } from "@/lib/utils";
 import {
   Action,
   Close,
@@ -8,9 +7,11 @@ import {
   Title,
   Viewport,
 } from "@radix-ui/react-toast";
-import { type VariantProps, cva } from "class-variance-authority";
+import { cva, type VariantProps } from "class-variance-authority";
 import { X } from "lucide-react";
 import { forwardRef } from "react";
+
+import { cn } from "@/lib/utils";
 
 const ToastProvider = Provider;
 

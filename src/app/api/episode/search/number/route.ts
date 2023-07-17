@@ -1,6 +1,7 @@
+import { NextResponse } from "next/server";
+
 import { basicResponse, parseId } from "@/lib/server/api";
 import prisma from "@/lib/server/prisma";
-import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
   const params = new URL(request.url).searchParams;

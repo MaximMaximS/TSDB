@@ -1,13 +1,15 @@
 "use client";
 
+import { SidebarOpen } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
+
+import siteConfig from "@/config/site";
+
 import { Logo } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import siteConfig from "@/config/site";
-import { SidebarOpen } from "lucide-react";
-import Link from "next/link";
-import { useState } from "react";
 
 export default function MobileNav({ logged }: { logged: boolean }) {
   const [open, setOpen] = useState(false);

@@ -1,19 +1,20 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import {
   Close,
   Content,
   Description,
-  type DialogPortalProps,
   Overlay,
   Portal,
   Root,
   Title,
   Trigger,
+  type DialogPortalProps,
 } from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 import { forwardRef } from "react";
+
+import { cn } from "@/lib/utils";
 
 const Dialog = Root;
 

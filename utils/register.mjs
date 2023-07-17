@@ -1,8 +1,8 @@
 // @ts-check
+import { createInterface } from "node:readline/promises";
 import { PrismaClient } from "@prisma/client";
 import { hash } from "argon2";
 import { nanoid } from "nanoid";
-import { createInterface } from "node:readline/promises";
 
 const prisma = new PrismaClient();
 

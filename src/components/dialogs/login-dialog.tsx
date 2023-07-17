@@ -1,5 +1,10 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import { useRef, useState } from "react";
+
+import { login } from "@/lib/actions/auth";
+
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -11,9 +16,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { useToast } from "@/components/ui/use-toast";
-import { login } from "@/lib/actions/auth";
-import { useRouter } from "next/navigation";
-import { useRef, useState } from "react";
 
 import FormInput from "./form-input";
 

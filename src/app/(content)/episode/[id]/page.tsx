@@ -1,5 +1,6 @@
-import { h1ClassName } from "@/components/typography";
 import { authWall } from "@/lib/server/auth";
+
+import { h1ClassName } from "@/components/typography";
 
 import getEpisode from "./get-episode";
 

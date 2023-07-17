@@ -1,5 +1,10 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
+import { logout } from "@/lib/actions/auth";
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -12,9 +17,6 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { useToast } from "@/components/ui/use-toast";
-import { logout } from "@/lib/actions/auth";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
 
 export default function LogoutDialog({
   children,

@@ -1,10 +1,7 @@
 "use client";
 
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import {
   Action,
-  type AlertDialogPortalProps,
   Cancel,
   Content,
   Description,
@@ -13,8 +10,13 @@ import {
   Root,
   Title,
   Trigger,
+  type AlertDialogPortalProps,
 } from "@radix-ui/react-alert-dialog";
 import { forwardRef } from "react";
+
+import { cn } from "@/lib/utils";
+
+import { buttonVariants } from "@/components/ui/button";
 
 const AlertDialog = Root;
 

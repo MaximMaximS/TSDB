@@ -1,8 +1,9 @@
 "use server";
 
+import { cookies } from "next/headers";
+
 import prisma from "@/lib/server/prisma";
 import { expirity, reqInfo } from "@/lib/server/utils";
-import { cookies } from "next/headers";
 
 /**
  * Creates new user session

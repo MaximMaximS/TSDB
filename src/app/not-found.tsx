@@ -1,6 +1,7 @@
+import { cn } from "@/lib/utils";
+
 import { h1ClassName, inlineCodeClassName } from "@/components/typography";
 import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 import Path from "./path";
 

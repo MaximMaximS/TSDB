@@ -1,5 +1,6 @@
-import { h1ClassName } from "@/components/typography";
 import { cn } from "@/lib/utils";
+
+import { h1ClassName } from "@/components/typography";
 
 export default function Page() {
   return (

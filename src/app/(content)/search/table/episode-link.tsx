@@ -1,6 +1,7 @@
-import { seFormat } from "@/lib/utils";
 import type { Episode } from "@prisma/client";
 import Link from "next/link";
+
+import { seFormat } from "@/lib/utils";
 
 interface EpisodeLinkProps {
   episode: Episode;

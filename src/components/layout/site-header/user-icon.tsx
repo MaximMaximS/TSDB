@@ -1,6 +1,7 @@
+import { User2 } from "lucide-react";
+
 import LogoutDialog from "@/components/dialogs/logout-dialog";
 import { Button } from "@/components/ui/button";
-import { User2 } from "lucide-react";
 
 export default function UserIcon() {
   return (

@@ -1,20 +1,21 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import {
   Close,
   Content,
   Description,
-  type DialogPortalProps,
   Overlay,
   Portal,
   Root,
   Title,
   Trigger,
+  type DialogPortalProps,
 } from "@radix-ui/react-dialog";
-import { type VariantProps, cva } from "class-variance-authority";
+import { cva, type VariantProps } from "class-variance-authority";
 import { X } from "lucide-react";
 import { forwardRef } from "react";
+
+import { cn } from "@/lib/utils";
 
 const Sheet = Root;
 

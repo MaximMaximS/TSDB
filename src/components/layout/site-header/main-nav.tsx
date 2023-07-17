@@ -1,6 +1,8 @@
-import { Logo } from "@/components/icons";
-import siteConfig from "@/config/site";
 import Link from "next/link";
+
+import siteConfig from "@/config/site";
+
+import { Logo } from "@/components/icons";
 
 import NavLink from "./nav-link";
 import NavList from "./nav-list";

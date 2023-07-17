@@ -1,13 +1,16 @@
+// eslint-disable-next-line camelcase
+import { Roboto_Mono, Rubik } from "next/font/google";
+import localFont from "next/font/local";
+
+import siteConfig from "@/config/site";
+
+import { cn } from "@/lib/utils";
+
 import Site from "@/components/layout/site";
 import SiteFooter from "@/components/layout/site-footer";
 import SiteHeader from "@/components/layout/site-header";
 import Providers from "@/components/providers";
 import { Toaster } from "@/components/ui/toaster";
-import siteConfig from "@/config/site";
-import { cn } from "@/lib/utils";
-// eslint-disable-next-line camelcase
-import { Roboto_Mono, Rubik } from "next/font/google";
-import localFont from "next/font/local";
 
 import "./globals.css";
 

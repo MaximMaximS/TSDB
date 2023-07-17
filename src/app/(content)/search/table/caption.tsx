@@ -1,5 +1,6 @@
-import { found } from "@/lib/utils";
 import { Loader } from "lucide-react";
+
+import { found } from "@/lib/utils";
 
 import getEpisodes from "./get-episodes";
 

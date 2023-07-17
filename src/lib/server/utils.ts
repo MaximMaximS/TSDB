@@ -1,9 +1,10 @@
 import "server-only";
 
-import siteConfig from "@/config/site";
 import { nanoid } from "nanoid";
 import { headers } from "next/headers";
 import { cache } from "react";
+
+import siteConfig from "@/config/site";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Func = (...args: any[]) => any;

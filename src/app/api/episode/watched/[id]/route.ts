@@ -1,7 +1,8 @@
-import { apiAuth, basicResponse, parseId, parseJson } from "@/lib/server/api";
-import prisma from "@/lib/server/prisma";
 import { NextResponse } from "next/server";
 import { z } from "zod";
+
+import { apiAuth, basicResponse, parseId, parseJson } from "@/lib/server/api";
+import prisma from "@/lib/server/prisma";
 
 export async function GET(
   _: Request,
