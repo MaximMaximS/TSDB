@@ -5,13 +5,19 @@ import { cookies } from "next/headers";
 import prisma from "@/lib/server/prisma";
 import { expirity, reqInfo } from "@/lib/server/utils";
 
+interface LoginOptions {
+  username: string;
+  password: string;
+  persist: boolean;
+}
+
 /**
  * Creates new user session
  * @param username Username
  * @param password Password
  * @returns Whether the login was successful
  */
-export async function login(username: string, password: string) {
+export async function login({ username, password, persist }: LoginOptions) {
   const { ip, agent } = reqInfo();
   const id = await prisma.user.login(username, password);
   if (id === null) {
@@ -27,7 +33,7 @@ export async function login(username: string, password: string) {
     sameSite: "strict",
     secure: true,
     path: "/",
-    expires: expiresAt,
+    expires: persist ? expiresAt : undefined,
   });
 
   return true;

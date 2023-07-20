@@ -71,7 +71,7 @@ export async function getSession() {
 export async function authWall() {
   const session = await getSession();
   if (session === null) {
-    redirect("/");
+    redirect("/login");
   }
   return session;
 }

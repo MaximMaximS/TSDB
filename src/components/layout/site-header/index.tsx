@@ -1,7 +1,6 @@
-import LoginButton from "./login-button";
+import AuthIndicator from "./auth-indicator";
 import ModeToggle from "./mode-toggle";
 import NavWrapper from "./nav-wrapper";
-import Suspend from "./suspend";
 
 export default function SiteHeader() {
   return (
@@ -11,7 +10,7 @@ export default function SiteHeader() {
         <NavWrapper mobile={true} />
         <div className="flex flex-1 items-center justify-between space-x-2 sm:space-x-4 md:justify-end">
           <nav className="flex items-center space-x-1">
-            <Suspend fallback={<LoginButton />} />
+            <AuthIndicator />
             <ModeToggle />
           </nav>
         </div>

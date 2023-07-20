@@ -1,10 +1,11 @@
-import LoginDialog from "@/components/dialogs/login-dialog";
+import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
 
 export default function LoginButton() {
   return (
-    <LoginDialog>
-      <Button variant="secondary">Login</Button>
-    </LoginDialog>
+    <Button variant="secondary" asChild>
+      <Link href={`/login`}>Login</Link>
+    </Button>
   );
 }
