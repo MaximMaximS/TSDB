@@ -2,6 +2,7 @@
 
 !src/
 !public/
+!assets/
 !prisma/
 !next.config.mjs
 !package.json
