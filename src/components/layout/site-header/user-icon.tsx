@@ -1,14 +1,15 @@
 import { User2 } from "lucide-react";
 
 import LogoutDialog from "@/components/dialogs/logout-dialog";
-import { Button } from "@/components/ui/button";
+
+import HeaderButton from "./header-button";
 
 export default function UserIcon() {
   return (
     <LogoutDialog>
-      <Button variant="ghost" size="sm" className="w-9 px-0">
+      <HeaderButton>
         <User2 />
-      </Button>
+      </HeaderButton>
     </LogoutDialog>
   );
 }
